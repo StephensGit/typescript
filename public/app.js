@@ -1,16 +1,16 @@
 "use strict";
-//  Explicit Types
-var character;
-var age;
-var isLoggedIn;
-age = 30;
-// Arrays
-var people = [];
-people.push("stephen", "David");
-console.log(people);
-//  Union Types -> One of several different types 
-var mixed = [];
-mixed.push('Dylan');
-var uid;
-uid = '123';
-console.log("Test");
+var greet;
+greet = function () {
+    console.log("First Function");
+};
+var add = function (a, b, c) {
+    console.log(a + b);
+    console.log(c);
+};
+add(10, 20, '25');
+// By placing a ': number ' after the () it is explicilty saying that this function returns a value of type number
+// However, this is unnecessary because  typescript assigns the type to the return value of the function
+var minus = function (a, b) {
+    return a + b;
+};
+var result = minus(5, 15);

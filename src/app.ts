@@ -1,21 +1,21 @@
-//  Explicit Types
-let character: string;
-let age: number;
-let isLoggedIn: boolean;
+let greet: Function;
 
-age = 30;
+greet = () => {
+    console.log("First Function");
+}
 
-// Arrays
-let people: string[] = [];
+const add = (a: number, b: number, c?: number | string) => {
+    console.log(a + b);
+    console.log(c);
+}
 
-people.push("stephen","David")
-console.log(people);
+add(10, 20, '25');
 
-//  Union Types -> One of several different types 
-let mixed: (string|number)[] = [];
-mixed.push('Dylan');
+// By placing a ': number ' after the () it is explicilty saying that this function returns a value of type number
+// However, this is unnecessary because  typescript assigns the type to the return value of the function
+const minus = (a: number, b: number): number => {
+    return a + b;
+}
 
-let uid: string|number;
-uid = '123';
+let result = minus(5, 15);
 
-console.log("Test");
