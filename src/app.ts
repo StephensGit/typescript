@@ -1,21 +1,36 @@
-let greet: Function;
+// Function Signatures
 
-greet = () => {
-    console.log("First Function");
+// Example 1
+let greet: (a: string, b: string) => void;
+
+greet = (name: string, greeting: string) => {
+    console.log(`${name} says ${greeting}`);
 }
 
-const add = (a: number, b: number, c?: number | string) => {
-    console.log(a + b);
-    console.log(c);
+greet("Dave", "Hello");
+
+// Example 2
+let calc: (a: number, b: number, c: string) => number;
+
+calc = (numOne: number, numTwo: number, action: string) => {
+    if(action == "add") {
+        return numOne + numTwo;
+    } else {
+        return numTwo - numOne;
+    }
 }
 
-add(10, 20, '25');
+let calcResult = calc(20, 30, "minus");
+console.log(calcResult);
 
-// By placing a ': number ' after the () it is explicilty saying that this function returns a value of type number
-// However, this is unnecessary because  typescript assigns the type to the return value of the function
-const minus = (a: number, b: number): number => {
-    return a + b;
-}
+//  Example 3
+let logDetails: (obj: {name: string, age: number}) => void;
 
-let result = minus(5, 15);
+logDetails = (person: {name:string, age:number}) => {
+    console.log(`${person.name} is ${person.age} years old`);
+};
+
+let stephen: object;
+let personLogDetails = logDetails(stephen);
+
 

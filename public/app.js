@@ -1,16 +1,27 @@
 "use strict";
+// Function Signatures
+// Example 1
 var greet;
-greet = function () {
-    console.log("First Function");
+greet = function (name, greeting) {
+    console.log(name + " says " + greeting);
 };
-var add = function (a, b, c) {
-    console.log(a + b);
-    console.log(c);
+greet("Dave", "Hello");
+// Example 2
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action == "add") {
+        return numOne + numTwo;
+    }
+    else {
+        return numTwo - numOne;
+    }
 };
-add(10, 20, '25');
-// By placing a ': number ' after the () it is explicilty saying that this function returns a value of type number
-// However, this is unnecessary because  typescript assigns the type to the return value of the function
-var minus = function (a, b) {
-    return a + b;
+var calcResult = calc(20, 30, "minus");
+console.log(calcResult);
+//  Example 3
+var logDetails;
+logDetails = function (person) {
+    console.log(person.name + " is " + person.age + " years old");
 };
-var result = minus(5, 15);
+var stephen;
+var personLogDetails = logDetails(stephen);
