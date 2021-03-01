@@ -1,5 +1,5 @@
 import { Invoice } from './classes/Invoice.js';
-const inOne = new Invoice('David', 'Dylan', 200);
+const inOne = new Invoice('David', 'worked on the ticket #1234', 200);
 const inTwo = new Invoice('Stephen', 'Gerard', 400);
 let invoices = [];
 invoices.push(inOne);
