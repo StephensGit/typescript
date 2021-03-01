@@ -1,14 +1,6 @@
 import { Invoice } from './classes/Invoice.js';
-
-const inOne = new Invoice('David', 'worked on the ticket #1234', 200);
-const inTwo = new Invoice('Stephen', 'Gerard', 400);
-
-let invoices: Invoice[] = [];
-invoices.push(inOne);
-invoices.push(inTwo);
-
-console.log(invoices);
-
+import { Payments } from './classes/Payments.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
@@ -20,10 +12,12 @@ const amount = document.querySelector('#amount') as HTMLFormElement;
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.value
-        );
+    let doc: HasFormatter;
+    if(type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    } else {
+        doc = new Payments(tofrom.value, details.value, amount.valueAsNumber)
+    }
+
+    console.log(doc);
 })
